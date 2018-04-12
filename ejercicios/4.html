@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+	<title>Javascript</title>
+
+</head>
+
+    <body>
+    	<p id="hola"></p>
+
+   
+		<script type="text/javascript">
+		function b(){
+			var myVar = 2;
+			console.log(myVar);
+		};
+		function a(){
+			var myVar = 3;
+			b();
+			console.log(myVar);
+		};
+
+		var myVar = 1;
+		a();	
+		console.log(myVar);
+
+		//cual seria el valor que tendra myvar?? La respuesta es 1, ya que el var = 1 esta en contexto global
+		</script>
+	
+	</body>
+	
+</html>

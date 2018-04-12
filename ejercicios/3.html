@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+	<title>Javascript</title>
+
+</head>
+
+    <body>
+    	<p id="hola"></p>
+
+   
+		<script type="text/javascript">
+			
+		const values = [1,2,3,34,56,656,32];
+		
+
+		var numGde = (values) => {
+			var a = values[0];	
+			for (i in values){ 
+				if(values[i]>a){
+					a = values[i];
+				}
+			}
+			return a
+		}
+		//encontrar el número mayor en un arreglo de nùmeros
+		console.log(numGde(values))
+		</script>
+	
+	</body>
+	
+</html>
