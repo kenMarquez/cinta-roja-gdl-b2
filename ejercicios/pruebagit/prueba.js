@@ -108,4 +108,7 @@ var nombres = (name, lastName) => {
   //los logs
   var tria1 = new Triangulo(5, 10);
   console.log(tria1.calcArea() + ', ' + tria1.calcPerimetro());
+
+  //haciendo push
+  
   
