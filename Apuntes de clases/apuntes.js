@@ -1,7 +1,3 @@
-console.log("Mi nombre es Oscar")
-
-
-
 
 //3 ejercicios
 var nombres = (name, lastName) => {
@@ -63,7 +59,7 @@ var nombres = (name, lastName) => {
   
     //Función que define el saludo
     presentarse(){
-      return 'hola me llamo ' + this.nombre + ' y tengo ' + this.edad + 'años!';
+      return 'Hola me llamo ' + this.nombre + ' y tengo ' + this.edad + ' años!';
     };
   
   };
@@ -107,8 +103,5 @@ var nombres = (name, lastName) => {
   
   //los logs
   var tria1 = new Triangulo(5, 10);
-  console.log(tria1.calcArea() + ', ' + tria1.calcPerimetro());
-
-  //haciendo push
-  
+  console.log(tria1.calcArea() + ', ' + tria1.calcPerimetro());  
   
