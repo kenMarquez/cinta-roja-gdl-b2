@@ -44,3 +44,16 @@ const contadorPar = (...others) =>{
     return(others.length)
 }
 console.log(contadorPar(1,2,3,4,5))
+// convertir a binario
+const convBin = (numBin) => {
+    a=[];
+    b=0;
+    c=1;
+    i=0;
+    while(numBin >1){
+        a[i]=numBin%2;
+        numBin = numBin / 2;
+        i++;
+    }
+
+}
