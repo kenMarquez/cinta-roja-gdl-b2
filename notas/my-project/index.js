@@ -49,18 +49,17 @@ console.log(sumDig(23478))
 //3-calcular el numero de cifras que tiene un entero de forma recursiva
 const cifras = (f) => {
     c=0;
-    if(Math.floor(f%10<=1)){return 0}
+    if(Math.floor(f%10<1)){return 0}
     return c = 1 + cifras(f/10);
     
 }
-console.log(cifras(2748596))
+console.log(cifras(99999))
 
 //4-calcular la serie de fibonacci de forma recursiva fib n = fib n-1 + fib n-2
 //fib 1 =1 , fib 2 = 2
 
 const fib = (g) => {
-    if (g==1) {return 1} 
-    if(g==2){return 1}
-    if(g>=3){return g = fib(g-1) + fib(g-2)} 
+    if (g==1 || g==2) {return 1} 
+    if (g>=3){return g = fib(g-1) + fib(g-2)} 
 }
-console.log(fib(6))
+console.log(fib(7))
