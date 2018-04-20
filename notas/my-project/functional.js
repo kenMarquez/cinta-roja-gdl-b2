@@ -104,23 +104,49 @@ const resultado2 = original3
 
 console.log(resultado2)
 
-//
-/*
+/*Escribe una funcion que tome una cadena de palabras en mayusculas y la regrese en minusculas.
+        Entrada: [“hola”,“como”,“estas”]
+        Salida: [“HOLA”,“COMO”,“ESTAS”] */
+
 let arreglomin = ["hola","como","estas"]
 const resultado3 = arreglomin
-    .map(palabra => {palabra.toUppercase()})
+    .map((palabra) => {return palabra.toUpperCase()})
 
 console.log(resultado3)
-*/
+
+/*Crea una funcion que reciba como parametro una cadena de palabras y devuelva la cadena de caracteres modificadas en mayusculas y minusculas.
+
+        Entrada:[“Hola amigos”, “cinta roja cdmx y gdl”,” yei” ]
+        Saloida:[“HOLA amigos”, “CINTA roja CDMX y GDL”,“YEI”] */
+
 let arreglocaps = ["hola amigos", "cinta roja cdmx y gdl","yei"]
 const resultado4 = arreglocaps
     .map(frase => {
         let split = frase.split(" ")
         for (i in split){
             if(i%2==0){
-               split [i] = split[i].toUpperCase();
-               return split
+               split[i] = split[i].toUpperCase();
+
             }
         }
+        return split
+         .reduce((prev,curr) => prev + " " +curr)
     })
 console.log(resultado4);
+
+/*3. Hacer un arreglo de 4 cantidades de tiempo en minutos [120, 80, 200, 100], y agarrar sólo las que son mayores a dos horas (hacer la comparación en horas) */
+
+let arregloMinutos = [120, 80, 200, 100]
+const resultado5 = arregloMinutos
+    .map(num => num/60)
+    .filter(num => num>= 2)
+    .map(num => num*60)
+console.log(resultado5);
+
+/*3. 4.- A partir de esta lista [1, 3, 5, 7, 9], multiplicar todos los elementos por 7, y después sólo traer los que son menores a 30 */
+let arreglomult = [1, 3, 5, 7, 9]
+const resultado6 = arreglomult
+    .map(num => num*7)
+    .filter(num => num<30)
+console.log(resultado6)
+
