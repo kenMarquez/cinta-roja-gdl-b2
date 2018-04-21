@@ -105,3 +105,81 @@ var nombres = (name, lastName) => {
   var tria1 = new Triangulo(5, 10);
   console.log(tria1.calcArea() + ', ' + tria1.calcPerimetro());  
   
+
+
+  ////////////////////////////////////////////////////////////////////////////////////////////
+// clase de callbacks y promise
+
+// function getTime()
+const wait = (milliseconds) => {
+  const start = new Date().getTime();
+  let end = start;
+  while(end < start + milliseconds ){
+      end = new Date().getTime();
+  };
+};
+
+console.log('paso1');
+wait(10);
+console.log('paso2');
+
+console.log('----------Callbacks--------')
+
+const log = function (text){
+  console.log(text)
+}
+
+function llamaLog (functionLog){
+  functionLog('paso3')
+}
+
+llamaLog(log);
+
+
+console.log('----------Async--------')
+
+
+setTimeout(() =>{
+  console.log('paso4')
+},10)
+
+console.log('paso5')
+
+
+console.log('----------Estructura callbacks--------')
+
+const succes = () => console.log('exito');
+
+const fail = () => console.log('fallo');
+
+const getUser = (callbackSucces, callbackFail) =>{
+  const status = 0;
+  if (status == 1){
+      callbackSucces();
+  }else {
+      callbackFail();
+  };
+};
+
+getUser(succes, fail);
+
+
+console.log('----------Promises--------')
+
+
+const promise = new Promise ((resolve, reject) => {
+  const number = Math.floor(Math.random() * 10);
+
+  setTimeout(() => {
+      if (number > 5){
+          resolve(number)
+      }else{
+          reject(new Error(`Invalid number: ${number}`))
+      }
+  },1000)
+});
+      
+
+promise
+  .then(number => console.log(number))
+  .catch(error => console.log(error))
