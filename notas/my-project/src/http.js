@@ -13,8 +13,11 @@ request(options,
         let json = JSON.parse(body);
         console.log(json.abilities[0].ability.name)
     })
-let noPokemon = 200;
 
+    
+let noPokemon = 200;
+const array = ["move1","move1","move1","move1"]
+array.forEach(str => console.log(str))
 // 1- headbutt
 // 2- double-edge
 
