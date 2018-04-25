@@ -6,7 +6,7 @@ let noPokemon = 25;
 var options = {
    url: 'http://pokeapi.co/api/v2/pokemon/'+noPokemon+'',
    headers: {
-     'User-Agent': 'request'
+     'User-Agent': 'request' //idenfica quien haze la solicitud para eso el headers
    }
  };
 
@@ -72,11 +72,11 @@ var options4 = {
  };
 
 // console.log("Ejercicio 4")
-//  request(options4,
-//    (error,response,body) =>{
-//     let json = JSON.parse(body);
-//     json.artists.forEach((srt) => console.log("Genero de banda: " + srt.strGenre))
-//    })
+ request(options4,
+   (error,response,body) =>{
+    let json = JSON.parse(body);
+    console.log("Genero de banda: " +json.artists[0].strGenre)
+   })
 
 
 // Devolver los asteroides que sean potencialmente peligrosos para la tierra de la semana pasada hasta hoy. 
@@ -141,9 +141,6 @@ var options6 = {
 // Traer los primeros 151 pokemon de la primera generacion y devolver un objeto con el nombre, sus moves, tipos, tamaño y peso
 
 for (let poke151 in 151){}
-
-var poke = 2
-
 
 var options7 = {
    url: 'http://pokeapi.co/api/v2/pokemon/'+poke+'',
