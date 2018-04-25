@@ -35,7 +35,7 @@ app.get('/pokemon/types', (req, res) => {
         .then(response => {
             let respuesta = {
                 Nombre: response.name.charAt(0).toUpperCase() + response.name.slice(1),
-                Tipos: response.types.map((srt) => " " + srt.type.name.charAt(0).toUpperCase() + response.name.slice(1))
+                Tipos: response.types.map((srt) => " " + srt.type.name.charAt(0).toUpperCase() + srt.type.name.slice(1))
             }
             res.json(respuesta)
 	    console.log(`Alguien esta buscando el pokemon numero ${req.query.n}.`)
