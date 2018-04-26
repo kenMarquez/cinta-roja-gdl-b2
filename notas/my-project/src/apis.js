@@ -46,3 +46,12 @@ rp(optionsOpenLib)
 //Traer los primeros 151 pokemon de la primera generacion y
 // devolver un objeto con el nombre, sus moves, tipos,
 // tamaño y peso
+const optionsOpenLib = {
+    method: 'GET',
+    uri: 'http://openlibrary.org/search.json?author=george+r+r+martin',
+    headers: {
+        'User-Agent': 'Request-Promise'
+    },
+    json: true // Automatically parses the JSON string in the response
+};
+

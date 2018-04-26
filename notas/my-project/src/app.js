@@ -40,14 +40,28 @@ app.get('/pokemon', (req, res) => {
 
 
 app.get('/pokemon/types', (req, res) => {
-    let jsonResponse = {
-        name: 'bulbasaur',
-        types: [
-            { name: 'venenoso' },
-            { name: 'hierva' }
-        ]
+
+    const numero = req.query.numero
+
+    const options2 = {
+        method: 'GET',
+        uri: `https://pokeapi.co/api/v2/pokemon/${numero}/`,
+        headers: {
+            'User-Agent': 'Request-Promise'
+        },
+        json: true, // Automatically parses the JSON strong in the response
     }
-    res.json(jsonResponse)
+
+    request(options2)
+        .then(response => {
+            jsonResponse = {
+                name: response.name,
+                abilities: response.moves.map(movimientos => { return movimientos.move.name }),
+            }
+            res.json(jsonResponse)
+        })
+        .catch(err => res.status(400).send("number no valid"))
 });
 
-app.listen(3000, () => console.log("Example app listening on port 3000"));
+
+app.listen(3000, () => console.log("Example app listening on port 127.0.0.1:3000"));
