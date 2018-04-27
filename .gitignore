@@ -1,0 +1,4 @@
+.DS_Store
+MongoExample/node_modules
+MongoExample/package-lock.json
+
