@@ -2,15 +2,20 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const request = require('request')
+var path = require("path");
 
 const app = express();
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({extended: false}));
+
+
 
 app.get('/', (req, res) => {
-    res.send("<h1>Servidor de mi Chatbot desplegado exitosamente</h1>")
+    res.sendFile(path.join(__dirname + '/view/index.html'));
 })
+
+
 
 app.get('/webhook', (req, res) => {
     // Verificar la coincidendia del token
@@ -76,11 +81,13 @@ function sendMessage(senderId, response) {
             console.error("No se pudo mandar el mensaje " + err);
         }
     });
-
-
 }
 
-//Configuramops el puerto y el mensaje en caso de éxito
-app.listen(3000, () => {
-    console.log('El servidor esta ejecutandose en el puerto 3000 ')
-})
+const newPort = process.env.PORT || 3002
+
+
+
+
+app.listen(newPort, function () {
+         console.log('El servidor esta ejecutandose')
+});

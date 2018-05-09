@@ -1,63 +1,70 @@
-"use strict";
+'use strict';
 
-console.log("Ejecutandose archivo JS");
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-// JSX
-var persons = [{
-    name: "Ken",
-    age: 25,
-    location: "CDMX"
-}, {
-    name: "Jorge",
-    age: 26
-}, {
-    name: "Ramiro",
-    age: 20,
-    location: "CDMX"
-}];
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var getLocation = function getLocation(location) {
-    if (location) {
-        return React.createElement(
-            "h1",
-            null,
-            "Location: ",
-            location,
-            " "
-        );
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Contador = function (_React$Component) {
+    _inherits(Contador, _React$Component);
+
+    function Contador(props) {
+        _classCallCheck(this, Contador);
+
+        var _this = _possibleConstructorReturn(this, (Contador.__proto__ || Object.getPrototypeOf(Contador)).call(this, props));
+
+        _this.handleAddOne = _this.handleAddOne.bind(_this);
+
+        _this.state = {
+            count: 0
+        };
+        return _this;
     }
-    return React.createElement(
-        "h3",
-        null,
-        "Location: Desconocida "
-    );
-};
 
-var template = React.createElement(
-    "div",
-    null,
-    persons.map(function (person) {
-        return React.createElement(
-            "div",
-            null,
-            React.createElement(
-                "h1",
+    _createClass(Contador, [{
+        key: 'handleAddOne',
+        value: function handleAddOne() {
+            this.setState(function (prevState) {
+                return {
+                    count: prevState.count + 1
+                };
+            });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return React.createElement(
+                'div',
                 null,
-                person.name
-            ),
-            React.createElement(
-                "p",
-                null,
-                "Age: ",
-                person.age
-            ),
-            getLocation(person.location)
-        );
-    })
-);
+                React.createElement(
+                    'h1',
+                    null,
+                    ' Count:  ',
+                    this.state.count
+                ),
+                React.createElement(
+                    'button',
+                    { onClick: this.handleAddOne },
+                    '+1'
+                ),
+                React.createElement(
+                    'button',
+                    null,
+                    '-1'
+                ),
+                React.createElement(
+                    'button',
+                    null,
+                    'Reset'
+                )
+            );
+        }
+    }]);
 
-var appRoot = document.getElementById('app');
+    return Contador;
+}(React.Component);
 
-// 1 parametro es un template (HTML) - JSX
-// 2do parametro es en donde lo vamos a colocar
-ReactDOM.render(template, appRoot);
+ReactDOM.render(React.createElement(Contador, null), document.getElementById('app'));
